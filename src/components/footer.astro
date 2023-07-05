@@ -1,0 +1,51 @@
+---
+import { Icon } from "astro-icon";
+import HeroImage from "~/components/hero-image.astro";
+import HeroImageDark from "~/components/hero-image-dark.astro";
+import Test from "~/react/test";
+
+import type { FooterLink } from "~/types";
+
+const links: Array<FooterLink> = [
+  {
+    url: "https://twitter.com/gauravrajeev61",
+    description: "GR on Twitter",
+    icon: "fa-brands:twitter",
+  },
+  {
+    url: "https://github.com/therealgauravr",
+    description: "GR on Github",
+    icon: "fa-brands:github",
+  },
+];
+---
+
+<footer class="relative flex h-80 flex-col-reverse items-center justify-start">
+  <div class="object-fit absolute inset-0 w-full">
+    <HeroImage />
+  </div>
+  <div class="z-40 flex w-4/5 flex-row items-center justify-between">
+    <span class="z-40 h-20 items-start whitespace-nowrap"
+      >Made in <a href="https://astro.build">
+        <Icon class="inline-block h-12" name="logomark" />
+      </a>
+    </span>
+    <ul
+      class="z-40 mb-10 flex flex-row items-center justify-center space-x-4 rounded-xl fill-current p-4"
+    >
+      {
+        links.map((link) => (
+          <li>
+            <a
+              class="flex h-16 w-16 items-center justify-center rounded-full border-2 border-current p-4"
+              href={link.url}
+            >
+              <span class="sr-only">{link.description}</span>
+              <Icon class="h-full" name={link.icon} />
+            </a>
+          </li>
+        ))
+      }
+    </ul>
+  </div>
+</footer>

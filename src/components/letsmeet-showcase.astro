@@ -1,0 +1,112 @@
+---
+import ContentSection from "~/components/content-section.astro";
+import ShowcaseCard from "~/components/showcase-card.astro";
+import { getShowcase } from "~/data/showcase";
+import LetsmeetHero from "~/assets/letsmeet_hero_mobile.png";
+import NeutronTallyAppAddCompanies from "~/assets/neutron_tally_add_companies.png";
+import NeutronWorkflow from "~/assets/neutron_workflow_screen.svg";
+
+import NeutronIntegrations from "~/assets/neutron_integrations_screen.png";
+
+import { Picture } from "@astrojs/image/components";
+
+const sites = await getShowcase();
+---
+
+<ContentSection title="I also built Letsmeet.at" id="showcase">
+  <Fragment slot="lead">
+    A personalized <span class="text-primary">Google Meet</span> link generator
+  </Fragment>
+  <div class="flex w-full max-w-6xl flex-col space-y-10 bg-opacity-20">
+    <div class={`flex w-full h-full my-5 flex-col space-y-5 sm:flex-row sm:space-x-10 sm:space-y-0 justify-between `}>
+      <Picture
+        class="h-full w-auto rounded-xl object-cover shadow-sm shadow-black"
+        src={LetsmeetHero}
+        widths={[800, 1200]}
+        height={800}
+        alt={`A screenshot of Neutron's dashboard`}
+      />
+      <div class="h-800 flex flex-col items-center justify-start space-y-4">
+        <div class={` w-3/4 p-4 font-gilroy font-light text-base text-left`}>
+          Built in <span class="text-primary">SvelteKit</span> to keep it lightweight,
+          Lets Meet was born of a simple desire - the convenience of Calendly, but
+          with a single Google Meet link.
+        </div>
+        <div class={` w-3/4 p-4 font-gilroy font-light text-base text-left`}>
+          The web app integrates with <span
+            class="font-gilroy font-bold text-primary">Canny</span
+          > for us to crowdsource features from our users, and we've seen our humble
+          application be used by
+          <span class="font-gilroy font-bold text-primary"
+            >a small but strong community of loyal users
+          </span>
+        </div>
+        <div class={` w-3/4 p-4 font-gilroy font-light text-base text-left`}>
+          The backend is built on <span
+            class="font-gilroy font-bold text-primary">FaunaDB</span
+          > - a no-brainer given the generous free tier and focus on autoscaling.
+        </div>
+      </div>
+    </div>
+    <!-- <div class={`flex w-full h-full my-5 flex-row space-x-10 justify-between `}>
+      <div class={` w-3/4 p-4 font-gilroy font-light text-base text-left`}>
+        Neutron's backend is built on Google Firebase for authentication, storage
+        (Firestore), lambdas (Cloud Functions), and event processing (Realtime
+        DB).
+        <br />
+        Additionally, the reminders and workflows engine is written entirely in Go, built on top of the Fiber framework.
+      </div>
+      <Picture
+        class="h-full w-auto object-cover p-4 rounded-lg"
+        src={NeutronWorkflow}
+        widths={[800, 1200]}
+        height={800}
+        alt={`A screenshot of Neutron's dashboard`}
+      />
+    </div>
+    <div class={`flex w-full h-full my-5 flex-row space-x-10 justify-between `}>
+      <Picture
+        class="h-full w-full object-contain"
+        src={NeutronIntegrations}
+        widths={[800, 1200]}
+        height={800}
+        alt={`A screenshot of Neutron's dashboard`}
+      />
+      <div class={` w-2/3 p-4 font-gilroy font-light text-base text-right`}>
+        For maximum coverage of the Indian MSME market, I built out integrations
+        for <b>Zoho Books</b> and <b>Tally</b>.
+        <br />
+        The integration with Zoho Books required building an adapter layer for the
+        <b>Zoho Books REST API</b>
+        <br />
+      </div>
+    </div>
+
+    <div class={`flex w-full h-full my-5 flex-row space-x-5 justify-center `}>
+      <div class={` w-2/3 p-4 font-gilroy font-light text-base  text-center`}>
+        Tally only exposes two interfaces:
+        <b
+          ><li>an XML interface</li><li>
+            an interface in TDL, Tally's proprietary scripting language
+          </li></b
+        >
+        <br />
+        In order to provide our customers a robust and user-friendly Tally integration,
+        I built a desktop app.
+        <br />
+        Using <b>Next.js</b> on the frontend and with a <b>Tauri</b> backend written
+        entirely in <b>Rust</b>, the performance of our data sync is vastly
+        superior to our competitors
+      </div>
+    </div>
+    <div class={`flex w-full h-full my-5 flex-row space-x-5 justify-between `}>
+      <Picture
+        class="h-auto w-auto object-contain"
+        src={NeutronTallyAppAddCompanies}
+        widths={[800, 1200]}
+        height={500}
+        alt={`A screenshot of Neutron's dashboard`}
+      />
+    </div> -->
+  </div>
+</ContentSection>

@@ -1,0 +1,64 @@
+---
+import CompatibilityList from "~/components/compatibility-list.astro";
+import ContentSection from "~/components/content-section.astro";
+import type { CompatibilityItem } from "~/types";
+
+const frameworks: CompatibilityItem[] = [
+  { icon: "mdi:react", title: "React", url: "#" },
+  { icon: "file-icons:svelte", title: "Svelte", url: "#" },
+  { icon: "frameworks/remix-icon", title: "Remix", url: "#" },
+  { icon: "mdi:firebase", title: "Firebase", url: "#" },
+  { icon: "mdi:tailwind", title: "Tailwind", url: "#" },
+
+  { icon: "mdi:google-cloud", title: "Google Cloud", url: "#" },
+  { icon: "mdi:aws", title: "AWS", url: "#" },
+
+  { icon: "backend/spring", title: "Spring", url: "#" },
+  { icon: "mdi:android", title: "Android", url: "#" },
+  { icon: "frameworks/nextjs", title: "Next.js", url: "#" },
+
+  { icon: "backend/tauri", title: "Tauri", url: "#" },
+];
+
+const languages: CompatibilityItem[] = [
+  { icon: "mdi:language-rust", title: "Rust", url: "#" },
+  { icon: "mdi:language-typescript", title: "TypeScript", url: "#" },
+  { icon: "mdi:language-python", title: "Python", url: "#" },
+  { icon: "mdi:language-go", title: "Go", url: "#" },
+  { icon: "mdi:language-java", title: "Java (JDK 8+)", url: "#" },
+  { icon: "mdi:language-cpp", title: "C++ 11 & 17", url: "#" },
+];
+
+const low_code_tools: CompatibilityItem[] = [
+  { icon: "frameworks/framer", title: "Framer", url: "#" },
+  { icon: "frameworks/webflow", title: "Webflow", url: "#" },
+  { icon: "frameworks/bubble", title: "Bubble", url: "#" },
+
+
+ 
+
+];
+---
+
+<ContentSection title="The brass tacks" id="compatibility">
+  <Fragment slot="lead">
+    I have extensive experience across stacks, but here's what <span
+      class="text-primary">I'm best at</span
+    >
+  </Fragment>
+  <CompatibilityList
+    items={frameworks}
+    title="Technologies"
+    url="https://docs.astro.build/core-concepts/framework-components/"
+  />
+  <CompatibilityList
+    items={languages}
+    title="Languages"
+    url="https://docs.astro.build/guides/deploy/"
+  />
+  <CompatibilityList
+    items={low_code_tools}
+    title="No(low)-code"
+    url="https://docs.astro.build/guides/deploy/"
+  />
+</ContentSection>

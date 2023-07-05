@@ -1,0 +1,16 @@
+---
+import { Picture } from "@astrojs/image/components";
+import bgDark from "~/assets/stacked-waves-haikei.svg";
+
+const widths = [450, 800, 1200];
+const sizes = "100vw";
+---
+
+<Picture
+  id="hero-image"
+  class="object-fit h-full w-full"
+  src={bgDark}
+  widths={widths}
+  sizes={sizes}
+  alt="The ridged surface of the moon"
+/>

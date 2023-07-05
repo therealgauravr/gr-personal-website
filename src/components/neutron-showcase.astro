@@ -1,0 +1,110 @@
+---
+import ContentSection from "~/components/content-section.astro";
+import ShowcaseCard from "~/components/showcase-card.astro";
+import { getShowcase } from "~/data/showcase";
+import NeutronDashboard from "~/assets/neutron_dashboard.svg";
+import NeutronTallyAppAddCompanies from "~/assets/neutron_tally_add_companies.png";
+import NeutronWorkflow from "~/assets/neutron_workflow_screen.png";
+
+import NeutronIntegrations from "~/assets/neutron_integrations_screen.png";
+
+import { Picture } from "@astrojs/image/components";
+
+const sites = await getShowcase();
+---
+
+<ContentSection
+  title="I've built Neutron, an AR automation (invoice-to-cash) solution"
+  id="showcase"
+>
+  <Fragment slot="lead">
+    The <span class="text-primary">Neutron</span> platform consists of a <span
+      class="text-primary">web application</span
+    >, a <span class="text-primary">desktop app</span>, and a bunch of backend
+    services that keep things <span class="text-primary">running smoothly</span>
+  </Fragment>
+  <div class="flex w-full max-w-6xl flex-col space-y-10 bg-opacity-20">
+    <div class={`flex w-full h-full my-5 flex-col sm:flex-row items-center space-y-5 sm:space-x-10 sm:space-y-0 justify-between `}>
+      <Picture
+        class="h-full w-auto object-cover rounded-xl shadow-sm shadow-black"
+        src={NeutronDashboard}
+        widths={[800, 1200]}
+        height={800}
+        alt={`A screenshot of Neutron's dashboard`}
+      />
+      <div class={` w-3/4 p-4 font-gilroy font-light text-base text-left`}>
+        Built from the ground up using <span class="text-primary font-gilroy font-bold">React</span> and the <span class="text-primary font-gilroy font-bold">Remix</span> framework,
+        our lightweight and performant web-app strips away the archaic
+        limitations of widely-used accounting software in India, allowing the modern
+        CFO/ AR Manager to
+        <b>
+          <li style="list-style-type: none;" class="font-gilroy font-bold">Automate tedious payment reminders</li>
+          <li style="list-style-type: none;" class="font-gilroy font-bold">Accelerate communication with their customers</li>
+          <li style="list-style-type: none;" class="font-gilroy font-bold">
+            Stop wasting their team's time running after past due invoices
+          </li>
+        </b>
+      </div>
+    </div>
+    <div class={`flex w-full h-full my-5 flex-col-reverse sm:flex-row items-center space-y-5 sm:space-x-10 sm:space-y-0 justify-between `}>
+      <div class={` w-3/4 p-4 font-gilroy font-light text-base text-left`}>
+        Neutron's backend is built on <span class="text-primary font-gilroy font-bold">Google Firebase</span> for authentication, storage
+        (Firestore), lambdas (Cloud Functions), and event processing (Realtime
+        DB).
+        <br />
+        Additionally, the reminders and workflows engine is written entirely in <span class="text-primary font-gilroy font-bold">Go</span>, built on top of the <span class="text-primary font-gilroy font-bold">Fiber</span> framework.
+      </div>
+      <Picture
+        class="h-full w-auto object-cover rounded-xl shadow-sm shadow-black"
+        src={NeutronWorkflow}
+        widths={[800, 1200]}
+        height={800}
+        alt={`A screenshot of Neutron's dashboard`}
+      />
+    </div>
+    <div class={`flex w-full h-full my-5 flex-col sm:flex-row items-center space-y-5 sm:space-x-10 sm:space-y-0 justify-between `}>
+      <Picture
+        class="h-full w-full object-cover rounded-xl shadow-sm shadow-black"
+        src={NeutronIntegrations}
+        widths={[800, 1200]}
+        height={800}
+        alt={`A screenshot of Neutron's dashboard`}
+      />
+      <div class={` w-2/3 p-4 font-gilroy font-light text-base text-left`}>
+        For maximum coverage of the Indian MSME market, we built out integrations
+        for <span class="text-primary font-gilroy font-bold">Zoho Books</span> and <span class="text-primary font-gilroy font-bold">Tally</span>.
+        <br />
+        The integration with Zoho Books required building an adapter layer for the
+        <span class="text-primary font-gilroy font-bold whitespace-nowrap">Zoho Books REST API</span>
+        <br />
+      </div>
+    </div>
+
+    <div class={`flex w-full h-full my-5 flex-row space-x-5 justify-center `}>
+      <div class={` w-full  p-4 font-gilroy font-light text-base text-center sm:text-left`}>
+        Tally only exposes two interfaces:
+        <b
+          ><li style="list-style-type: none;" class="font-gilroy font-bold">an XML interface</li><li style="list-style-type: none;" class=" font-gilroy font-bold">
+            an interface in TDL, Tally's proprietary scripting language
+          </li ></b
+        >
+        <br />
+        In order to provide our customers a robust and user-friendly Tally integration,
+        I built a <span class="text-primary font-gilroy font-bold">desktop app</span>
+        <br />
+        Using <span class="text-primary font-gilroy font-bold">Next.js</span> on the frontend and with a <span class="text-primary font-gilroy font-bold">Tauri</span> backend written
+        entirely in <span class="text-primary font-gilroy font-bold">Rust</span>, the performance of our data sync is vastly
+        superior to our competitors
+      </div>
+    </div>
+    <div class={`flex w-full h-full my-5 flex-col-reverse sm:flex-row sm:space-x-5 justify-between `}>
+      <Picture
+        class="h-auto w-auto object-cover rounded-xl shadow-sm shadow-black"
+        src={NeutronTallyAppAddCompanies}
+        widths={[800, 1200]}
+        height={500}
+        alt={`A screenshot of Neutron's dashboard`}
+      />
+    </div>
+  </div>
+</ContentSection>
